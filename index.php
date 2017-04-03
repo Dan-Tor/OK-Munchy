@@ -13,20 +13,13 @@
     <!-- The Start of the code that dynamically searches -->
     <script>
       $(function() {
-                        $( "#skills" ).autocomplete({
-                          source: 'prengine/search.php'
-                        });
-                      });
+                                $( "#skills" ).autocomplete({
+                                  source: 'prengine/search.php'
+                                });
+                              });
     </script>
     <!-- The End of the code that dynamically searches -->
   </head><body>
-    <!--This is code for the video background-->
-    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline="" autoplay="" muted="" loop="">
-      <source src="C:\Users\Dan\Documents\OK-Munchy\okmunchy.mp4" type="video/webm">
-        <source src="C:\Users\Dan\Documents\OK-Munchy\okmunchy.mp4" type="video/mp4">
-    </video>
-    <!--end of the video code-->
-    
     <!-- Under is the Navigation Bar-->
     <div class="cover">
       <div class="navbar">
@@ -54,7 +47,7 @@
       </div>
       <!-- End of Navigation Bar -->
       <!-- Start of BG-->
-      <div class="cover-image" style=""></div>
+      <div class="cover-image" style="background-image : url('https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_960_720.jpg')"></div>
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -92,16 +85,27 @@
     <script src="indexsources/scroll/jquery.smooth-scroll.min.js"></script>
     <script>
       $('.smooth').on('click', function() {
-                        $.smoothScroll({
-                            scrollElement: $('body'),
-                            scrollTarget: '#' + this.id
-                        });
-                        
-                        return false;
-                    });
+                                $.smoothScroll({
+                                    scrollElement: $('body'),
+                                    scrollTarget: '#' + this.id
+                                });
+                                
+                                return false;
+                            });
     </script>
     <!-- End the scroll down script -->
     <!-- Start of the page block -->
+    <!--LOCATION BLOCK-->
+    <div class="section bars">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-center">NOW WITH # LOCATIONS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END OF LOCATION BLOCK-->
     <div id="page2">
       <a id="portfolio" class="smooth"></a>
       <!--?php //Started in 12/26/2016 - 9:40 am nook cafe //Alfred Albizures
@@ -154,7 +158,7 @@
             </tr>
           </tbody>
         </table>'; echo'</div>'; }else{ echo"0 results"; } $conn-&gt;close(); ?&gt;</div>
-    <div class="section section-primary">
+    <div class="section bars">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
