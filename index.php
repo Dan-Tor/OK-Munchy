@@ -13,16 +13,16 @@
     <!-- The Start of the code that dynamically searches -->
     <script>
       $(function() {
-                                $( "#skills" ).autocomplete({
-                                  source: 'prengine/search.php'
-                                });
-                              });
+                                                                $( "#skills" ).autocomplete({
+                                                                  source: 'prengine/search.php'
+                                                                });
+                                                              });
     </script>
     <!-- The End of the code that dynamically searches -->
   </head><body>
     <!-- Under is the Navigation Bar-->
     <div class="cover">
-      <div class="navbar">
+      <div class="navbar navbar default navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,7 +47,7 @@
       </div>
       <!-- End of Navigation Bar -->
       <!-- Start of BG-->
-      <div class="cover-image" style="background-image : url('https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_960_720.jpg')"></div>
+      <div class="cover-image" style="background-image : url('https://cdn.pixabay.com/photo/2016/12/01/20/12/texture-1876086_960_720.jpg')"></div>
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -85,13 +85,13 @@
     <script src="indexsources/scroll/jquery.smooth-scroll.min.js"></script>
     <script>
       $('.smooth').on('click', function() {
-                                $.smoothScroll({
-                                    scrollElement: $('body'),
-                                    scrollTarget: '#' + this.id
-                                });
-                                
-                                return false;
-                            });
+                                                                $.smoothScroll({
+                                                                    scrollElement: $('body'),
+                                                                    scrollTarget: '#' + this.id
+                                                                });
+                                                                
+                                                                return false;
+                                                            });
     </script>
     <!-- End the scroll down script -->
     <!-- Start of the page block -->
@@ -100,7 +100,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <p class="text-center">NOW WITH # LOCATIONS</p>
+            <!--This is the code being displayed-->
+            <h1 class="text-center">NOW WITH # LOCATIONS</h1>
+            <!--This is the end of the code being displayed-->
           </div>
         </div>
       </div>
@@ -158,34 +160,40 @@
             </tr>
           </tbody>
         </table>'; echo'</div>'; }else{ echo"0 results"; } $conn-&gt;close(); ?&gt;</div>
-    <div class="section bars">
+    <!--
+    Under is the style that allows hyperlinks to remove that stupid line underneath
+    -->
+    <style type="text/css">
+      a {text-decoration: none}
+    </style>
+    <!-- Under Hot munchys sections where rows and columns take you
+    independent pages by category's -->
+    <!-- Simple enough create a page for all 9 pages with a sql command and
+    we are done -->
+    <!--This is the table for "Hottest Munchies" nuke it as neccessary a better
+    one can be built this is a place holder -->
+    <div class="section boxDetails">
+      <div class="background-image background-image-fixed" style="background-image : url('https://cdn.pixabay.com/photo/2016/12/01/20/12/texture-1876086_960_720.jpg')"></div>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="text-center">
-              <b>Hottest Munchies!</b>
+            <h1 class="text-center boxDetails" id="tableHeader">
+              <b>Hottest Munchies in Town!</b>
             </h1>
           </div>
         </div>
-      </div>
-      </div>
-      <!-- Under is the style that allows hyperlinks to remove that stupid line
-      underneath -->
-      <style type="text/css">
-        a {text-decoration: none}
-      </style>
-      <!-- Under Hot munchys sections where rows and columns take you
-      independent pages by category's -->
-      <!-- Simple enough create a page for all 9 pages with a sql command and
-      we are done -->
-      <!--This is the table for "Hottest Munchies" nuke it as neccessary a better
-      one can be built this is a place holder -->
-      <div class="section">
-        <div class="background-image" style="background-image : url('pics/lightpaper.png')"></div>
-        <div class="container">
-          <div class="row">
+        <div class="row">
+          <div class="col-md-4">
+            <blockquote class="boxDetails">
+              <h1 contenteditable="true">Old Favorites or Hot New Dishes</h1>
+              <br>
+              <p contenteditable="true">Whatever your tastes are, Okay Munchy has you covered!</p>
+            </blockquote>
+          </div>
+          <div class="col-md-8">
             <div class="col-md-12">
-              <table class="table">
+              <br>
+              <table class="table boxDetails">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -204,7 +212,7 @@
                       <a href="http://www.computerhope.com" style="text-decoration: none">Coffee</a>
                     </td>
                     <td>
-                      <a href="http://www.computerhope.com" style="text-decoration: none">Low$</a>
+                      <a href="http://www.computerhope.com" style="text-decoration: none">Low $</a>
                     </td>
                   </tr>
                   <tr>
@@ -216,7 +224,7 @@
                       <a href="http://www.computerhope.com" style="text-decoration: none">Sandwich</a>
                     </td>
                     <td>
-                      <a href="http://www.computerhope.com" style="text-decoration: none">Medium$</a>
+                      <a href="http://www.computerhope.com" style="text-decoration: none">Medium $$</a>
                     </td>
                   </tr>
                   <tr>
@@ -228,7 +236,7 @@
                       <a href="http://www.computerhope.com" style="text-decoration: none">Tacos</a>
                     </td>
                     <td>
-                      <a href="http://www.computerhope.com" style="text-decoration: none">High$$</a>
+                      <a href="http://www.computerhope.com" style="text-decoration: none">High $$$</a>
                     </td>
                   </tr>
                 </tbody>
@@ -237,41 +245,38 @@
           </div>
         </div>
       </div>
-      <div class="section footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <h1>
-                <b>Okay Munchy!</b>
-              </h1>
-              <p>Okay Munchy is a simple food and drink Web App. Made by sleep deprived
-                students for sleep deprived students.</p>
-              <p>Alfred Albizures, Carlos Moreno, Daniel Torres. All Rights Reserved 2017.</p>
-            </div>
-            <div class="col-md-6">
-              <!--So these BR tags are actually really ghetto but it gets the job done,
-              might switch em later-->
-              <br>
-              <br>
-              <br>
-              <p>If you are a business owner who would like to see your business on Okay
-                Munchy, send us an email @ email.okaymunchy.com
-                <br>with: Your name, the name of your business, and a business details (Category,
-                hours, phone, etc) and a short description of what you guys do.</p>
-            </div>
+    </div>
+    <div class="section footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1>
+              <b>Okay Munchy!</b>
+            </h1>
+            <p>Okay Munchy is a simple food and drink Web App. Made by sleep deprived
+              students for sleep deprived students.</p>
+            <p>Alfred Albizures, Carlos Moreno, Daniel Torres. All Rights Reserved 2017.</p>
           </div>
-          <div class="row">
-            <div class="col-md-12 hidden-xs text-right">
-              <a href="adminprofile/admin.php"><img src="pics/cf.png"></a>
-            </div>
+          <div class="col-md-6">
+            <!--So these BR tags are actually really ghetto but it gets the job done,
+            might switch em later-->
+            <br>
+            <br>
+            <br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 hidden-xs text-right">
+            <a href="adminprofile/admin.php"><img src="pics/cf.png"></a>
           </div>
         </div>
       </div>
-      <!-- This code is for the dynamic jquery that guesses the entrys and drop
-      down query -->
-      <link rel="stylesheet" href="indexsources/searchsc/jquery-ui.css">
-      <script src="indexsources/searchsc/jquery-1.10.2.js"></script>
-      <script src="indexsources/searchsc/jquery-ui.js"></script>
+    </div>
+    <!-- This code is for the dynamic jquery that guesses the entrys and drop
+    down query -->
+    <link rel="stylesheet" href="indexsources/searchsc/jquery-ui.css">
+    <script src="indexsources/searchsc/jquery-1.10.2.js"></script>
+    <script src="indexsources/searchsc/jquery-ui.js"></script>
   
 
 </body></html>
