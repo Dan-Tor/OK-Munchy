@@ -12,6 +12,15 @@
  *   box-shadow : 0px 0px 10px black !important;
  * }
 */
+a:link {
+  color: #fff;
+}
+a:visited {
+  color: #999999;
+}
+a:hover {
+  color: #029bc9;
+}
 #title {
   padding: 20px;
   border-style: solid;
@@ -19,10 +28,22 @@
   background: #ffffff;
   background: rgba(33, 33, 33, 0.5);
 }
-.boxDetails {
+.leftboxDetails {
   padding: 20px;
-  background: #212121;
-  background: rgba(33, 33, 33, 0.4);
+  background: #d76565;
+  color: white;
+  font-size: 26;
+}
+.rightboxDetails {
+  padding: 35px;
+  background: #9fc4ca;
+  color: white;
+  font-size: 26;
+}
+.topboxDetails {
+  margin-bottom: 30px;
+  padding: 35px;
+  background: #edd2a7;
   color: white;
   font-size: 26;
 }
@@ -6810,7 +6831,7 @@ body {
   color: white;
 }
 .bars {
-  background: #E06A4E;
+  background: #333333;
   color: #fff;
   font-size: 36;
   padding: 50;
