@@ -1,6 +1,7 @@
 <html><head>
     <!-- Generic Boot Strap Code that used by pigeon html tool -->
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="indexsources/jquery.min.js"></script>
     <script type="text/javascript" src="indexsources/bootstrap.min.js"></script>
@@ -13,16 +14,15 @@
     <!-- The Start of the code that dynamically searches -->
     <script>
       $(function() {
-                                                                        $( "#skills" ).autocomplete({
-                                                                          source: 'prengine/search.php'
-                                                                        });
-                                                                      });
+                                                                                                $( "#skills" ).autocomplete({
+                                                                                                  source: 'prengine/search.php'
+                                                                                                });
+                                                                                              });
     </script>
     <!-- The End of the code that dynamically searches -->
   </head><body>
     <!-- Under is the Navigation Bar-->
     <div class="cover midbox">
-      
       <!-- End of Navigation Bar -->
       <!-- Start of BG-->
       <div class="cover-image" style=""></div>
@@ -63,13 +63,13 @@
     <script src="indexsources/scroll/jquery.smooth-scroll.min.js"></script>
     <script>
       $('.smooth').on('click', function() {
-                                                                        $.smoothScroll({
-                                                                            scrollElement: $('body'),
-                                                                            scrollTarget: '#' + this.id
-                                                                        });
-                                                                        
-                                                                        return false;
-                                                                    });
+                                                                                                $.smoothScroll({
+                                                                                                    scrollElement: $('body'),
+                                                                                                    scrollTarget: '#' + this.id
+                                                                                                });
+                                                                                                
+                                                                                                return false;
+                                                                                            });
     </script>
     <!-- End the scroll down script -->
     <!-- Start of the page block -->
@@ -222,6 +222,62 @@
           </div>
         </div>
       </div>
+    </div>
+    <!--This is the "Explore More" row section-->
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section text-center">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 ">
+                    <h1 class="text-center" id="explore">Explore More!</h1>
+                    <p class="text-center" id="stats">Stats and additional information</p>
+                    <hr>
+                  </div>
+                </div>
+                <!--The icon columns begin here-->
+                <div class="row">
+                  <div class="col-md-3">
+                    <span class="fa-stack fa-5x">
+                      <a href="https://www.google.com/"><i class="fa fa-cutlery fa-stack-1x fa-inverse" style="font-size:150px;"></i>
+                      </a>
+                    </span>
+                    <h1>Restaurants</h1>
+                  </div>
+                  <div class="col-md-3">
+                    <span class="fa-stack fa-5x">
+                      <a href="https://www.google.com/"><i class="fa fa-book fa-stack-1x fa-inverse fa-book" style="font-size:150px;"></i>
+                      </a>
+                    </span>
+                    <h1>Menus</h1>
+                  </div>
+                  <div class="col-md-3">
+                    <span class="fa-stack fa-5x">
+                      <a href="https://www.google.com/"><i class="fa fa-wifi fa-stack-1x fa-inverse" style="font-size:150px;"></i>
+                      </a>
+                    </span>
+                    <h1>Wi-Fi</h1>
+                  </div>
+                  <div class="col-md-3">
+                    <span class="fa-stack fa-5x">
+                      <a href="https://www.google.com/"> <i class="fa fa-group fa-stack-1x fa-inverse" style="font-size:150px;"></i>
+                      </a>
+                    </span>
+                    <h1>Vendors</h1>
+                  </div>
+                  <!--The icon columns ends here-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--This section below is just for styling-->
+    <div class="section midbox">
+      <div class="container"></div>
     </div>
     <div class="section footer">
       <div class="container">
