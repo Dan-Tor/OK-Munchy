@@ -51,6 +51,33 @@ a:hover {
   background: #ffffff;
   background: rgba(33, 33, 33, 0.3);
 }
+#alfred {
+  padding: 60px;
+  color: white;
+  background: #9fc4ca;
+}
+#alfred p {
+  font-size: 25px;
+  color: white;
+}
+#carlos {
+  padding: 60px;
+  color: white;
+  background: #edd2a7;
+}
+#carlos p {
+  font-size: 25px;
+  color: white;
+}
+#daniel {
+  padding: 60px;
+  color: white;
+  background: #d76565;
+}
+#daniel p {
+  font-size: 25px;
+  color: white;
+}
 #explore {
   font-size: 50px;
 }
@@ -60,6 +87,9 @@ a:hover {
   padding-bottom: 25px;
   background: #ffffff;
   background: rgba(33, 33, 33, 0.5);
+}
+#leftfooter {
+  padding-top: 55px;
 }
 #stats {
   font-size: 25px;
@@ -6867,7 +6897,7 @@ body {
 }
 /* PINGENDO COMMENT DO NOT REMOVE */
 .footer {
-  background: #212121;
+  background: #333333;
   font-size: 18;
   color: white;
 }
