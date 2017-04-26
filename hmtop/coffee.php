@@ -164,10 +164,12 @@ if ($conn -> connect_error){
 
 
 
+$city ="coffee";
 
-$sql = "SELECT name,item,price FROM base 
-
-JOIN `Food Menu` ON base.id_base = `Food Menu`.rest_id";
+$sql = "SELECT name, item, price
+FROM base
+JOIN  `Food Menu` ON base.id_base =  `Food Menu`.rest_id
+AND  `base`.`categories` = '$city' ";
 
 
 $result = $conn ->query($sql);

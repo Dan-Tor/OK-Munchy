@@ -94,37 +94,98 @@ include('session.php');
 </div>
 
 
+
+
+
 <div class="container">
-  <div class="row" style="margin-top:20px">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-      <form action="" method="post">
-        <fieldset>
-          <h2>Admin Search.....</h2>
-          <hr class="colorgraph">
-          <div class="form-group">
+  		<div class="row">
+  			<div class="col-md-6 col-md-offset-3">
+  				<h1 class="page-header text-center">Add new admin</h1>
 
-<div class="ui-widget">
-<form name="form1" method = "post" action="/adminprofile/profile.php">
+<!-- This takes the name of the name and sends the input as a post command to the active file called nook.php that inserts to database  -->
 
-            <input id="skills" input name="skills" type="text" label for="skills" class="form-control input-lg">
-          </div>
-          
-          <hr class="colorgraph">
-          <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <input type="submit" name="Submit" value="Search" class="btn btn-lg btn-success btn-block">
-            </div>
-</form>
-</div>
+				<form class="form-horizontal" role="form" method="POST" action="nook2.php">
+
+<!-- The Text Box to add Name  -->
+
+					<div class="form-group">
+						<label for="name" class="col-sm-2 control-label">Name</label>
+						<div class="col-sm-10">
+					     <input type="text" class="form-control" id="name" name="name" placeholder="Name" >
+					   </div>
+					</div>
+
+<!-- The Text Box to add Street number -->
+
+                                        <div class="form-group">
+						<label for="street number" class="col-sm-2 control-label">Password</label>
+						   <div class="col-sm-10">
+						      <input type="text" class="form-control" id="stnum" name="stnum" placeholder="Password" >
+					           </div>
+					        </div>
 
 
+
+
+
+
+
+<!-- The Insert button to add send info over to the nook.php file -->
+
+					<div class="form-group">
+						<div class="col-sm-10 col-sm-offset-2">
+						   <input id="submit" name="submit" type="submit" value="Insert" class="btn btn-primary"/>
+	                                           
+					    </div>
+					</div>
+				     </form> 
+			         </div>
+		             </div>
+	                 </div>
+
+
+
+
+
+
+<?php
+$servername ="localhost";
+$username ="uhdmunchy";
+$password ="Coffee2017";
+$dbName ="okaymunchy";
+
+$conn = new mysqli($servername, $username, $password, $dbName);
+$query = "SELECT COUNT(*) FROM admin";
+$output = $conn->query($query);
+$count = $output->fetch_row();
+
+//echo "Total number of retrieved rows is ". $count[0];
+    
+    echo '<div class="section bars">';
+      echo '<div class="container">';
+        echo'<div class="row">';
+          echo'<div class="col-md-12">';
+
+            echo'<h1 class="text-center">';
+            echo "There are $count[0] admins total  ";
+            echo'</h1>';
             
-          </div>
-        </fieldset>
-      </form>
-    </div>
-  </div>
-</div>
+          echo'</div>';
+        echo'</div>';
+      echo'</div>';
+    echo'</div>';
+
+$conn->close();
+
+?>
+
+
+
+
+
+
+
+
 
 
 
@@ -158,16 +219,16 @@ if ($conn -> connect_error){
 }
 
 
-$sql = "SELECT * FROM `base` ";
+$sql = "SELECT * FROM `admin` ";
 
 
-$city = $_POST['skills'];
+//$city = $_POST['skills'];
 
 
-if($city)
-{
-$sql = "SELECT * FROM  `base` WHERE  `name` =  '$city' ";
-}
+//if($city)
+//{
+//$sql = "SELECT * FROM  `base` WHERE  `name` =  '$city' ";
+//}
 
 
 //If there is a connection display the results 
@@ -183,13 +244,9 @@ if ($result-> num_rows >0){
 
 echo "<thead><tr>
 
-<th>name</th>
-<th>address #</th>
-<th>str name</th>
-<th>state</th>
-<th>zip</th>
-<th>categories</th>
-<th>phone #</th>
+<th>Username</th>
+<th>Password</th>
+
 
 <th>actions</th></tr>";
 
@@ -199,23 +256,20 @@ echo"</thead>";
 
 echo"<tr><tbody><tr>
 
-<form action=update.php method=post>
 
-<td><input type=text name=rname value='" . $row["name"] . "'></td>
-<td><input type=text name=address value='" . $row["address num"] . "'></td>
-<td><input type=text name=street value='" . $row["street"] . "'></td>
-<td><input type=text name=state value='" . $row["state"] . "'></td>
-<td><input type=text name=zipo value='"  . $row["zip"] . "'></td>
-<td><input type=text name=cate value='"  . $row["categories"] . "'></td>
-<td><input type=text name=phonn value='"  . $row["phone"] . "'></td>
+<form action=updateadmins.php method=post>
 
-<td><input type=hidden name=id_base value='" . $row["id_base"] . "'></td>
+<td><input type=text name=rname value='" . $row["username"] . "'></td>
+<td><input type=text name=passw value='" . $row["password"] . "'></td>
+
+
+<td><input type=hidden name=id value='" . $row["id"] . "'></td>
 
 <td><input type=submit value=Update></td>
 
 </form>
 
-<td><a href =delete.php?id_base=". $row["id_base"] . " >Delete</a></td></tr>";
+<td><a href =deleteadmins.php?id=". $row["id"] . " >Delete</a></td></tr>";
 
 echo"</tbody>";
 

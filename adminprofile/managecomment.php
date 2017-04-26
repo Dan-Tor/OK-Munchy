@@ -70,9 +70,9 @@ include('session.php');
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="database.php">Manage Admins</a></li>
+            <li><a href="manadmins.php">Manage Admins</a></li>
             <li><a href="/adminprofile/addrest/test.html">Add Restaurant</a></li>
-            <li><a href="database.php">Manage Menu</a></li>
+            <li><a href="addmenuitem.php">Manage Menu</a></li>
             <li><a href="/adminprofile/managecomment.php">Manage Comments </a></li>
             
           </ul>
@@ -82,54 +82,42 @@ include('session.php');
 
 
 
-
-
-
-
-
-
 <div id="profile">
 <b id="welcome">Welcome : <i><?php echo $login_session; ?></i></b>
 <b id="logout"><a href="/adminprofile/logout.php">Log Out</a></b>
 </div>
 
 
-<div class="container">
-  <div class="row" style="margin-top:20px">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-      <form action="" method="post">
-        <fieldset>
-          <h2>Admin Search.....</h2>
-          <hr class="colorgraph">
-          <div class="form-group">
+<?php
+$servername ="localhost";
+$username ="uhdmunchy";
+$password ="Coffee2017";
+$dbName ="okaymunchy";
 
-<div class="ui-widget">
-<form name="form1" method = "post" action="/adminprofile/profile.php">
+$conn = new mysqli($servername, $username, $password, $dbName);
+$query = "SELECT COUNT(*) FROM commenttable";
+$output = $conn->query($query);
+$count = $output->fetch_row();
 
-            <input id="skills" input name="skills" type="text" label for="skills" class="form-control input-lg">
-          </div>
-          
-          <hr class="colorgraph">
-          <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <input type="submit" name="Submit" value="Search" class="btn btn-lg btn-success btn-block">
-            </div>
-</form>
-</div>
-
-
-            
-          </div>
-        </fieldset>
-      </form>
-    </div>
-  </div>
-</div>
-
-
-
-
+//echo "Total number of retrieved rows is ". $count[0];
     
+    echo '<div class="section bars">';
+      echo '<div class="container">';
+        echo'<div class="row">';
+          echo'<div class="col-md-12">';
+
+            echo'<h1 class="text-center">';
+            echo "There are $count[0] comments total  ";
+            echo'</h1>';
+            
+          echo'</div>';
+        echo'</div>';
+      echo'</div>';
+    echo'</div>';
+
+$conn->close();
+
+?>
 
 
        <?php
@@ -158,16 +146,10 @@ if ($conn -> connect_error){
 }
 
 
-$sql = "SELECT * FROM `base` ";
+$sql = "SELECT * FROM `commenttable` ";
 
 
-$city = $_POST['skills'];
 
-
-if($city)
-{
-$sql = "SELECT * FROM  `base` WHERE  `name` =  '$city' ";
-}
 
 
 //If there is a connection display the results 
@@ -184,12 +166,8 @@ if ($result-> num_rows >0){
 echo "<thead><tr>
 
 <th>name</th>
-<th>address #</th>
-<th>str name</th>
-<th>state</th>
-<th>zip</th>
-<th>categories</th>
-<th>phone #</th>
+<th>Message</th>
+
 
 <th>actions</th></tr>";
 
@@ -199,23 +177,18 @@ echo"</thead>";
 
 echo"<tr><tbody><tr>
 
-<form action=update.php method=post>
 
-<td><input type=text name=rname value='" . $row["name"] . "'></td>
-<td><input type=text name=address value='" . $row["address num"] . "'></td>
-<td><input type=text name=street value='" . $row["street"] . "'></td>
-<td><input type=text name=state value='" . $row["state"] . "'></td>
-<td><input type=text name=zipo value='"  . $row["zip"] . "'></td>
-<td><input type=text name=cate value='"  . $row["categories"] . "'></td>
-<td><input type=text name=phonn value='"  . $row["phone"] . "'></td>
 
-<td><input type=hidden name=id_base value='" . $row["id_base"] . "'></td>
+<td>" . $row["name"] . "</td>
+<td>" . $row["message"] . "</td>
 
-<td><input type=submit value=Update></td>
 
-</form>
+<td><input type=hidden name=id_base value='" . $row["id_com"] . "'></td>
 
-<td><a href =delete.php?id_base=". $row["id_base"] . " >Delete</a></td></tr>";
+
+
+
+<td><a href =deletecom.php?id_com=". $row["id_com"] . " >Delete</a></td></tr>";
 
 echo"</tbody>";
 

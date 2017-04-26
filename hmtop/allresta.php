@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="bootstrap-3.3.7/favicon.ico">
 
-    <title>OKM samich</title>
+    <title>OKM All Restaurants</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/index.php">sandmich</a>
+          <a class="navbar-brand" href="/index.php">All menus</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -56,36 +56,54 @@
 
 
 
-        <h1><i>Sandwich Shops </i></h1>
+        <h1><i>All Restaurants</i></h1>
 
-<iframe height='320' scrolling='no' title='Responsive Google Map' src='hmmaps/sandsmap.html' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>        
-</iframe>
-
-<BR>
-<BR>
 
 <p align="left"><b><i>Description:</i><b></p>
 
-<p>These are the locations okay munchy thought was the most hipster coffee shops don't hate the players hate the game </p>
-<BR>
-<BR>
-
-<p align="left"><b><i>Details:</i><b></p>
-
-
-
 
 <?php
-
-//Testing join operation on database sql query to finish this assignment 
-//SQL DataBase log in information to connect to the database
-
 $servername ="localhost";
 $username ="uhdmunchy";
 $password ="Coffee2017";
 $dbName ="okaymunchy";
 
-//creates the database connection
+$conn = new mysqli($servername, $username, $password, $dbName);
+$query = "SELECT COUNT(*) FROM `base` ";
+$output = $conn->query($query);
+$count = $output->fetch_row();
+
+//echo "Total number of retrieved rows is ". $count[0];
+    
+    echo '<div class="section bars">';
+      echo '<div class="container">';
+        echo'<div class="row">';
+          echo'<div class="col-md-12">';
+
+            echo'<h1 class="text-center">';
+            echo "There is a total of $count[0] Restaurants";
+            echo'</h1>';
+            
+          echo'</div>';
+        echo'</div>';
+      echo'</div>';
+    echo'</div>';
+
+$conn->close();
+
+?>
+
+
+
+
+<p align="left"><b><i>Details:</i><b></p>
+
+<?php
+
+$servername ="localhost";
+$username ="uhdmunchy";
+$password ="Coffee2017";
+$dbName ="okaymunchy";
 
 $conn = new mysqli($servername, $username, $password, $dbName);
 
@@ -93,44 +111,50 @@ if ($conn -> connect_error){
 	die ("connection failed: " . $conn -> connect_error);
 }
 
-$city ="sandwich";
 
-//This is a SQL command looking thew the base table and comparing an exact comparison name and the $city users input
 
-$sql = "SELECT * FROM  `base` WHERE  `categories` =  '$city' ";
+
+$sql = "SELECT * FROM `base` ";
+
 
 $result = $conn ->query($sql);
 
 if ($result-> num_rows >0){
-
  echo '<div class="table-responsive">';
  echo '<table class="table table-striped">';
 	echo "<thead>
 <tr>
 
+
 <th>name</th>
-<th>address #</th>
-<th>str name</th>
-<th>state</th>
-<th>zipcode</th>
-<th>categories</th>
-<th>phone #</th>
+<th>#</th>
+<th>st name</th>
+<th>ST</th>
+<th>ZIP</th>
+<th>categ</th>
+<th>ring ring</th>
 
 </tr>";
-
 echo"</thead>";
 
 	while($row = $result -> fetch_assoc())
+
 {
 echo"<tbody>
 <tr>
+
+
 <td>" . $row["name"] . "</td>
 <td>" . $row["address num"] . "</td>
 <td>" . $row["street"] . "</td>
 <td>" . $row["state"] . "</td>
-<td>"  . $row["zip"] . "</td>
-<td>"  . $row["categories"] . "</td>
-<td>"  . $row["phone"] . "</td>
+<td>" . $row["zip"] . "</td>
+<td>" . $row["categories"] . "</td>
+<td>" . $row["phone"] . "</td>
+
+
+
+
 </tr>";
 echo"</tbody>";
 		}
@@ -139,6 +163,37 @@ echo"</tbody>";
 }else{
 	echo"0 results";
 }
+$conn->close();
+?>
+
+
+
+<?php
+$servername ="localhost";
+$username ="uhdmunchy";
+$password ="Coffee2017";
+$dbName ="okaymunchy";
+
+$conn = new mysqli($servername, $username, $password, $dbName);
+$query = "SELECT COUNT(*) FROM `events` ";
+$output = $conn->query($query);
+$count = $output->fetch_row();
+
+//echo "Total number of retrieved rows is ". $count[0];
+    
+    echo '<div class="section bars">';
+      echo '<div class="container">';
+        echo'<div class="row">';
+          echo'<div class="col-md-12">';
+
+            echo'<h1 class="text-center">';
+            echo "There is a total of $count[0] Events";
+            echo'</h1>';
+            
+          echo'</div>';
+        echo'</div>';
+      echo'</div>';
+    echo'</div>';
 
 $conn->close();
 
@@ -147,7 +202,7 @@ $conn->close();
 
 
 
-
+<p align="left"><b><i>Details:</i><b></p>
 
 <?php
 
@@ -164,12 +219,10 @@ if ($conn -> connect_error){
 
 
 
-$city ="sandwich";
 
-$sql = "SELECT name, item, price
-FROM base
-JOIN  `Food Menu` ON base.id_base =  `Food Menu`.rest_id
-AND  `base`.`categories` = '$city' ";
+$sql = "SELECT name,event,day,time FROM base 
+
+JOIN `events` ON base.id_base = `events`.event_id";
 
 
 
@@ -181,9 +234,13 @@ if ($result-> num_rows >0){
 	echo "<thead>
 <tr>
 
+
 <th>name</th>
-<th>Menu: Items</th>
-<th>Price</th>
+<th>event</th>
+<th>day</th>
+<th>time</th>
+
+
 </tr>";
 echo"</thead>";
 
@@ -192,9 +249,14 @@ echo"</thead>";
 {
 echo"<tbody>
 <tr>
+
+
 <td>" . $row["name"] . "</td>
-<td>" . $row["item"] . "</td>
-<td>" . $row["price"] . "</td>
+<td>" . $row["event"] . "</td>
+<td>" . $row["day"] . "</td>
+<td>" . $row["time"] . "</td>
+
+
 
 </tr>";
 echo"</tbody>";
@@ -208,7 +270,106 @@ $conn->close();
 ?>
 
 
+<?php
+$servername ="localhost";
+$username ="uhdmunchy";
+$password ="Coffee2017";
+$dbName ="okaymunchy";
 
+$conn = new mysqli($servername, $username, $password, $dbName);
+$query = "SELECT COUNT(*) FROM `Parking` ";
+$output = $conn->query($query);
+$count = $output->fetch_row();
+
+//echo "Total number of retrieved rows is ". $count[0];
+    
+    echo '<div class="section bars">';
+      echo '<div class="container">';
+        echo'<div class="row">';
+          echo'<div class="col-md-12">';
+
+            echo'<h1 class="text-center">';
+            echo "Parking data for $count[0] Restaurants ";
+            echo'</h1>';
+            
+          echo'</div>';
+        echo'</div>';
+      echo'</div>';
+    echo'</div>';
+
+$conn->close();
+
+?>
+
+
+
+
+<p align="left"><b><i>Details:</i><b></p>
+
+<?php
+
+$servername ="localhost";
+$username ="uhdmunchy";
+$password ="Coffee2017";
+$dbName ="okaymunchy";
+
+$conn = new mysqli($servername, $username, $password, $dbName);
+
+if ($conn -> connect_error){
+	die ("connection failed: " . $conn -> connect_error);
+}
+
+
+
+
+$sql = "SELECT name,availablespots,pstatus,crowdedtime FROM base 
+
+JOIN `Parking` ON base.id_base = `Parking`.park_id";
+
+
+
+$result = $conn ->query($sql);
+
+if ($result-> num_rows >0){
+ echo '<div class="table-responsive">';
+ echo '<table class="table table-striped">';
+	echo "<thead>
+<tr>
+
+
+<th>name</th>
+<th>available spots</th>
+<th>status</th>
+<th>crowded times</th>
+
+
+</tr>";
+echo"</thead>";
+
+	while($row = $result -> fetch_assoc())
+
+{
+echo"<tbody>
+<tr>
+
+
+<td>" . $row["name"] . "</td>
+<td>" . $row["availablespots"] . "</td>
+<td>" . $row["pstatus"] . "</td>
+<td>" . $row["crowdedtime"] . "</td>
+
+
+
+</tr>";
+echo"</tbody>";
+		}
+        echo'</table>';
+        echo'</div>';
+}else{
+	echo"0 results";
+}
+$conn->close();
+?>
 
 
 

@@ -91,7 +91,20 @@ if ($conn -> connect_error){
 	die ("connection failed: " . $conn -> connect_error);
 }
 
-$sql = "SELECT * FROM  `Food Menu` WHERE  `price` >  '10' ";
+//$sql = "SELECT * FROM  `Food Menu` WHERE  `price` >  '10' ";
+
+
+
+$city ="10";
+
+$sql = "SELECT name, item, price
+FROM base
+JOIN  `Food Menu` ON base.id_base =  `Food Menu`.rest_id
+AND  `Food Menu`.`price` > '$city'  ";
+
+
+
+
 
 
 //$select=mysql_query("SELECT * FROM  `Food Menu` WHERE  `rest_id` =  '18' ");

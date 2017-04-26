@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="bootstrap-3.3.7/favicon.ico">
 
-    <title>OKM samich</title>
+    <title>OKM All wifi</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/index.php">sandmich</a>
+          <a class="navbar-brand" href="/index.php">All menus</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -56,98 +56,52 @@
 
 
 
-        <h1><i>Sandwich Shops </i></h1>
+        <h1><i>All Wifi </i></h1>
 
-<iframe height='320' scrolling='no' title='Responsive Google Map' src='hmmaps/sandsmap.html' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>        
-</iframe>
+
 
 <BR>
 <BR>
 
 <p align="left"><b><i>Description:</i><b></p>
 
-<p>These are the locations okay munchy thought was the most hipster coffee shops don't hate the players hate the game </p>
-<BR>
-<BR>
-
-<p align="left"><b><i>Details:</i><b></p>
-
 
 
 
 <?php
-
-//Testing join operation on database sql query to finish this assignment 
-//SQL DataBase log in information to connect to the database
-
 $servername ="localhost";
 $username ="uhdmunchy";
 $password ="Coffee2017";
 $dbName ="okaymunchy";
 
-//creates the database connection
-
 $conn = new mysqli($servername, $username, $password, $dbName);
+$query = "SELECT AVG(downspeed) FROM `wifi`";
 
-if ($conn -> connect_error){
-	die ("connection failed: " . $conn -> connect_error);
-}
+$output = $conn->query($query);
+$count = $output->fetch_row();
 
-$city ="sandwich";
+//echo "Total number of retrieved rows is ". $count[0];
+    
+    echo '<div class="section bars">';
+      echo '<div class="container">';
+        echo'<div class="row">';
+          echo'<div class="col-md-12">';
 
-//This is a SQL command looking thew the base table and comparing an exact comparison name and the $city users input
-
-$sql = "SELECT * FROM  `base` WHERE  `categories` =  '$city' ";
-
-$result = $conn ->query($sql);
-
-if ($result-> num_rows >0){
-
- echo '<div class="table-responsive">';
- echo '<table class="table table-striped">';
-	echo "<thead>
-<tr>
-
-<th>name</th>
-<th>address #</th>
-<th>str name</th>
-<th>state</th>
-<th>zipcode</th>
-<th>categories</th>
-<th>phone #</th>
-
-</tr>";
-
-echo"</thead>";
-
-	while($row = $result -> fetch_assoc())
-{
-echo"<tbody>
-<tr>
-<td>" . $row["name"] . "</td>
-<td>" . $row["address num"] . "</td>
-<td>" . $row["street"] . "</td>
-<td>" . $row["state"] . "</td>
-<td>"  . $row["zip"] . "</td>
-<td>"  . $row["categories"] . "</td>
-<td>"  . $row["phone"] . "</td>
-</tr>";
-echo"</tbody>";
-		}
-        echo'</table>';
+            echo'<h1 class="text-center">';
+            echo "The average wifi speed is  $count[0] mbps ";
+            echo'</h1>';
+            
+          echo'</div>';
         echo'</div>';
-}else{
-	echo"0 results";
-}
+      echo'</div>';
+    echo'</div>';
 
 $conn->close();
 
 ?>
 
 
-
-
-
+<p align="left"><b><i>Details:</i><b></p>
 
 <?php
 
@@ -164,13 +118,9 @@ if ($conn -> connect_error){
 
 
 
-$city ="sandwich";
 
-$sql = "SELECT name, item, price
-FROM base
-JOIN  `Food Menu` ON base.id_base =  `Food Menu`.rest_id
-AND  `base`.`categories` = '$city' ";
-
+$sql = "SELECT name,downspeed,upspeed,password FROM base 
+JOIN `wifi` ON base.id_base = wifi.wifi_id";
 
 
 $result = $conn ->query($sql);
@@ -182,8 +132,9 @@ if ($result-> num_rows >0){
 <tr>
 
 <th>name</th>
-<th>Menu: Items</th>
-<th>Price</th>
+<th>downspeed</th>
+<th>upspeed</th>
+<th>password</th>
 </tr>";
 echo"</thead>";
 
@@ -193,8 +144,9 @@ echo"</thead>";
 echo"<tbody>
 <tr>
 <td>" . $row["name"] . "</td>
-<td>" . $row["item"] . "</td>
-<td>" . $row["price"] . "</td>
+<td>" . $row["downspeed"] . "</td>
+<td>" . $row["upspeed"] . "</td>
+<td>" . $row["password"] . "</td>
 
 </tr>";
 echo"</tbody>";

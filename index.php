@@ -20,6 +20,18 @@
 
 <!-- The Start of the code that dynamically searches  -->
 
+
+<head>
+  <link rel="SHORTCUT ICON" href="pics/logolarge.png"/>
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="pics/logolarge.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="pics/logolarge.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="pics/logolarge.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="pics/logolarge.png" />
+</head>
+
+
+
+
  <script>
   $(function() {
     $( "#skills" ).autocomplete({
@@ -52,7 +64,7 @@
                 <a href="index.php">Home</a>
               </li>
               <li>
-                <a href="about.html">Contacts</a>
+                <a href="about.html">About Us</a>
               </li>
             </ul>
           </div>
@@ -80,7 +92,7 @@
                         <div class="form-group">
                           <div class="ui-widget">
                            <form name="form1" method = "post" action="index.php/#portfolio">
-                            <input id="skills" input="" name="skills" type="text" label="" for="skills" class="form-control input-lg">
+                            <input id="skills" placeholder="type in a restaurant "input="" name="skills" type="text" label="" for="skills" class="form-control input-lg">
                           </div>
                           <hr class="colorgraph">
                           <div class="row">
@@ -166,9 +178,8 @@ $conn->close();
 
 <?php
 
-//Started in 12/26/2016 - 9:40 am nook cafe 
+ 
 //Alfred Albizures in collaboration with william albizures
-//Completed code on 12/30/2016 - 3:42PM Starbucks wallisville rd
 // 832-414-0264 alfredalbizures@gmail.com
 
 //SQL DataBase log in information to connect to the database
@@ -334,11 +345,11 @@ $conn->close();
                     <th>#</th>
                     <th>Top</th>
                     <th>Categories</th>
-                    <th>$ Range</th>
+                    <th>Range</th>
                   </tr>
                 </thead>
                 <tbody>
-<tr>
+                           <tr>
                                     <td>1</td>
                                     <td><a href="hmtop/blackholem.php" style="text-decoration: none">Black Hole</a></td>
                                     <td><a href="hmtop/coffee.php" style="text-decoration: none">Coffee</a></td>
@@ -387,28 +398,28 @@ $conn->close();
                 <div class="row">
                   <div class="col-md-3">
                     <span class="fa-stack fa-5x">
-                      <a href="https://www.google.com/"><i class="fa fa-cutlery fa-stack-1x fa-inverse" style="font-size:150px;"></i>
+                      <a href="hmtop/allresta.php"><i class="fa fa-cutlery fa-stack-1x fa-inverse" style="font-size:150px;"></i>
                       </a>
                     </span>
                     <h1>Restaurants</h1>
                   </div>
                   <div class="col-md-3">
                     <span class="fa-stack fa-5x">
-                      <a href="https://www.google.com/"><i class="fa fa-book fa-stack-1x fa-inverse fa-book" style="font-size:150px;"></i>
+                      <a href="hmtop/allmenus.php"><i class="fa fa-book fa-stack-1x fa-inverse fa-book" style="font-size:150px;"></i>
                       </a>
                     </span>
                     <h1>Menus</h1>
                   </div>
                   <div class="col-md-3">
                     <span class="fa-stack fa-5x">
-                      <a href="https://www.google.com/"><i class="fa fa-wifi fa-stack-1x fa-inverse" style="font-size:150px;"></i>
+                      <a href="hmtop/allwifi.php"><i class="fa fa-wifi fa-stack-1x fa-inverse" style="font-size:150px;"></i>
                       </a>
                     </span>
                     <h1>Wi-Fi</h1>
                   </div>
                   <div class="col-md-3">
                     <span class="fa-stack fa-5x">
-                      <a href="https://www.google.com/"> <i class="fa fa-group fa-stack-1x fa-inverse" style="font-size:150px;"></i>
+                      <a href="hmtop/vendortran.php"> <i class="fa fa-group fa-stack-1x fa-inverse" style="font-size:150px;"></i>
                       </a>
                     </span>
                     <h1>Vendors</h1>
